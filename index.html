@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./global.css" title="style" />
+    <link rel="stylesheet" type="text/css" href="./gol.css" title="style" />
     <title>Game of Life</title>
-</head>
-<body>
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
-    <script type="text/javascript" src="./sketch.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="titol">
+        <img src="img/logo.png">
+      </div>
+      <div class="navmenu">
+          <ul>
+              <li>Inici</li>
+              <li>Estadistiques</li>
+              <li>Partides guardades</li>
+              <li>Contacte</li>
+          </ul>
+      </div>
+    </header>
+    <content>
+        <div id="world">
+          <script src='gol.js'></script>
+      <!-- <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"
+      ></script>
+      <script type="text/javascript" src="./sketch.js"></script>
+      -->
+
+    </div>
+    <div class="form"><h1>Formulari</h1>
+    <form>
+        <label for="inputNom">Nom</label>
+        <input name="nom" type="text" class="form-control" id="inputNom" placeholder="El teu nom">
+    </form></div>
+    </content>
+    <footer>
+<p>«Azar es una palabra vacía de sentido; nada puede existir sin causa».<br>
+  Voltaire</p>
+    </footer>
 </body>
 </html>

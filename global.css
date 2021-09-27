@@ -1,3 +1,103 @@
-body {background-color:#ffffff;background-repeat:no-repeat;background-position:top left;background-attachment:fixed;}
-h1{font-family:Arial, sans-serif;color:#000000;background-color:#ffffff;}
-p {font-family:Georgia, serif;font-size:14px;font-style:normal;font-weight:normal;color:#000000;background-color:#ffffff;}
+* {
+    
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    
+    background-color: #393e46;
+    font-family: "Helvetica";
+    
+}
+
+header {
+    display: flex;
+    color: white;
+    background-color: #222831;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 10px 5px #222831;
+    max-height: 300px;
+    flex-flow: row nowrap;
+}
+
+header .titol {
+    display: flex;
+    flex: 1 1 auto;
+    text-align: right;
+    justify-content: right;
+    color: white;
+    padding-right: 30px;
+}
+
+.titol img {
+    max-width: 40%;
+}
+
+header .navmenu {
+    display: flex;
+    flex: 1 1 70%;
+    text-align: center;
+    color: white;
+}
+
+content {
+    display: flex;
+    color: white;
+    background-color: #2e333a;
+    justify-content: center;
+    align-items: center;    
+}
+
+content .joc {
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+
+}
+
+content .form {
+    flex: 1 1 auto;
+
+}
+
+.navmenu ul{
+    display: flex;
+}
+
+.navmenu ul, li {
+    display: flex;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+}
+
+content .joc {
+    flex: 2 1 auto;
+    background: blue;
+
+}
+
+content .form {
+    flex: 1 1 auto;
+    background: #1abc9c;
+
+}
+
+footer {
+    background-color: #222831;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+footer p {
+    color: white;
+}

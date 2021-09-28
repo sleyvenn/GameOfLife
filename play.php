@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="./global.css" title="style" />
-    <link rel="stylesheet" type="text/css" href="./gol.css" title="style" />
     <title>Game of Life</title>
   </head>
   <body>

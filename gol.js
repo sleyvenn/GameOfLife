@@ -1,27 +1,21 @@
 const rows = 15;
-const cols = 15;
+const cols = 25;
+
 
 
 let started=false;// Set to true when use clicks start
 let timer; //Controla las evoluciones
-let evolutionSpeed = 300;// 1000 = 1 segundo
+let evolutionSpeed = 340;// 1000 = 1 segundo
 // Need 2D arrays. These are 1D
 let currGen =[rows];
 let nextGen =[rows];
 // Creates two-dimensional arrays
-
-
-function showCicles(){
-    var number = "123";
-      document.getElementById("#cicles").innerHTML = number;
-
-}
+let contador = 0;
 
 function createGenArrays() {
     for (let i = 0; i < rows; i++) {
         currGen[i] = new Array(cols);
         nextGen[i] = new Array(cols);
-      
     }
 }
 function initGenArrays() {
@@ -29,6 +23,7 @@ function initGenArrays() {
         for (let j = 0; j < cols; j++) {
             currGen[i][j] = 0;
             nextGen[i][j] = 0;
+            
         }
     }
 }
@@ -62,13 +57,16 @@ function cellClick() {
         this.setAttribute('class', 'alive');
         currGen[row][col] = 1;
     }
+
 }
 function createNextGen() {
+    
     for (row in currGen) {
+        
         for (col in currGen[row]) {
-           
+
             let neighbors = getNeighborCount(row, col);
-         
+
             // Check the rules
             // If Alive
             if (currGen[row][col] == 1) {
@@ -89,11 +87,12 @@ function createNextGen() {
                 }
             }
 
-            cicles++;
-
         }
+        
     }
-
+    contador++;
+    updateTimer();
+    // Incremento el contador per tal de mostrar els cicles del joc.
     
 }
 function getNeighborCount(row, col) {
@@ -132,6 +131,7 @@ function getNeighborCount(row, col) {
         //Check right neighbor
         if (currGen[nrow][ncol + 1] == 1) 
             count++;
+
     }
 // Make sure we are not on the bottom left corner
     if (nrow + 1 < rows && ncol - 1 >= 0) {
@@ -156,6 +156,7 @@ function getNeighborCount(row, col) {
     
     
     return count;
+
 }
     
     function updateCurrGen() {
@@ -167,6 +168,7 @@ function getNeighborCount(row, col) {
                 currGen[row][col] = nextGen[row][col];
                 // Set nextGen back to empty
                 nextGen[row][col] = 0;
+                
             }
         }
      
@@ -175,6 +177,7 @@ function updateWorld() {
         let cell='';
         for (row in currGen) {
             for (col in currGen[row]) {
+
                 cell = document.getElementById(row + '_' + col);
                 if (currGen[row][col] == 0) {
                     cell.setAttribute('class', 'dead');
@@ -185,7 +188,7 @@ function updateWorld() {
         }
     }
 function evolve(){
-      
+
         createNextGen();
         updateCurrGen();
         updateWorld();
@@ -193,12 +196,33 @@ if (started) {
             timer = setTimeout(evolve, evolutionSpeed);
         }
 }
+
+function updateTimer(){
+    document.getElementById("cicles").innerText= contador;
+
+}
+
+function sliderVelocitat() {
+    var velocitat = document.getElementById("speed");
+    var output = document.getElementById("valor");
+    output.innerHTML = velocitat.value; // Display the default slider value
+    
+    // Update the current slider value (each time you drag the slider handle)
+    velocitat.oninput = function() {
+      output.innerHTML = this.value;
+      evolutionSpeed = this.value * 120;
+      
+    }
+
+
+}
+
 function startStopGol(){
         let startstop=document.querySelector('#btnplay');
        
         if (!started) {
            started = true;
-           startstop.value='Pause';
+           startstop.value='Pausar';
            evolve();
          
          } else {
@@ -206,6 +230,8 @@ function startStopGol(){
             startstop.value='Play';
             clearTimeout(timer); 
         }
+
+        
     }
  
   
@@ -213,8 +239,12 @@ function startStopGol(){
         location.reload();
   
     }
+
 window.onload=()=>{
     createWorld();// The visual table
     createGenArrays();// current and next generations
     initGenArrays();//Set all array locations to 0=dead
+    updateTimer();
+    sliderVelocitat();
 }
+

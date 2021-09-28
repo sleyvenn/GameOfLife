@@ -1,6 +1,7 @@
 const rows = 15;
 const cols = 15;
 
+
 let started=false;// Set to true when use clicks start
 let timer; //Controla las evoluciones
 let evolutionSpeed = 300;// 1000 = 1 segundo
@@ -8,6 +9,14 @@ let evolutionSpeed = 300;// 1000 = 1 segundo
 let currGen =[rows];
 let nextGen =[rows];
 // Creates two-dimensional arrays
+
+
+function showCicles(){
+    var number = "123";
+      document.getElementById("#cicles").innerHTML = number;
+
+}
+
 function createGenArrays() {
     for (let i = 0; i < rows; i++) {
         currGen[i] = new Array(cols);
@@ -79,8 +88,12 @@ function createNextGen() {
                     nextGen[row][col] = 1;// Birth?
                 }
             }
+
+            cicles++;
+
         }
     }
+
     
 }
 function getNeighborCount(row, col) {
@@ -181,16 +194,16 @@ if (started) {
         }
 }
 function startStopGol(){
-        let startstop=document.querySelector('#btnstartstop');
+        let startstop=document.querySelector('#btnplay');
        
         if (!started) {
            started = true;
-           startstop.value='Stop Reproducing';
+           startstop.value='Pause';
            evolve();
          
          } else {
             started = false;
-            startstop.value='Start Reproducing';
+            startstop.value='Play';
             clearTimeout(timer); 
         }
     }

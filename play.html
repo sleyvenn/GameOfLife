@@ -23,39 +23,11 @@
     <content>
       <div id="joc">
         <script src="gol.js"></script>
-        <!-- <script
-        type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"
-      ></script>
-      <script type="text/javascript" src="./sketch.js"></script>
-      --></div>
-      <div class="form">
-        <h1>Quina es la grandaria que vols per l'univers?</h1>
-        <form>
-          <label for="cols">Columnes</label>
-          <input
-            name="columnes"
-            type="number"
-            class="form-control"
-            id="cols"
-            min="3"
-            max="20"
-            placeholder="3"
-          />
-          <label for="rows">Files</label>
-          <input
-            name="files"
-            type="number"
-            class="form-control"
-            id="rows"
-            min="3"
-            max="20"
-            placeholder="3"
-          />
-        </form>
-        <div>
-          <Input type='button' id='btnstartstop' value='Start Reproducing' onclick='startStopGol();'/>
-<Input type='button' id='btnreset' value='Reset World' onclick='resetWorld();'/>
+        </div>
+        <div class="play">
+          <Input type='button' id='btnplay' value='Play' onclick='startStopGol();'/>
+          <Input type='button' id='btnreset' value='Reset' onclick='resetWorld();'/>
+          <div id="cicles"></div>
       </div>
       </div>
     </content>

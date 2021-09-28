@@ -11,12 +11,25 @@ body {
     
     background-color: #393e46;
     font-family: "Helvetica";
+    color:#fad34b;
     
+}
+
+link, a {
+    color: #fad34b;
+    font-style: normal;
+    text-decoration: none;
+    font-size: bold;
+
+}
+
+link:hover {
+    
+    border-bottom: 1px #fad34b solid;
 }
 
 header {
     display: flex;
-    color: white;
     background-color: #222831;
     justify-content: center;
     align-items: center;
@@ -28,45 +41,30 @@ header {
 header .titol {
     display: flex;
     flex: 1 1 auto;
-    text-align: right;
-    justify-content: right;
-    color: white;
+    order: 1;
+    text-align: center;
+    justify-content: center;
     padding-right: 30px;
 }
 
 .titol img {
     max-width: 40%;
+    min-width: 30%;
 }
 
 header .navmenu {
     display: flex;
-    flex: 1 1 70%;
+    flex: 1 1 auto;
     text-align: center;
     color: white;
+    order: 2;
+
 }
 
-content {
+.navmenu ul {
     display: flex;
-    color: white;
-    background-color: #2e333a;
-    justify-content: center;
-    align-items: center;    
-}
-
-content .joc {
-    display: flex;
-    flex: 1 1 auto;
-    height: 100%;
-
-}
-
-content .form {
-    flex: 1 1 auto;
-
-}
-
-.navmenu ul{
-    display: flex;
+    justify-content: left;
+    text-align: left;
 }
 
 .navmenu ul, li {
@@ -78,26 +76,110 @@ content .form {
     align-items: center;    
 }
 
-content .joc {
-    flex: 2 1 auto;
-    background: blue;
+content {
+    display: flex;
+    background-color: #2e333a;
+    justify-content: center;
+    align-items: center;  
+    padding: 30px;  
+
+}
+
+content #joc {
+    display: flex;
+    flex: 1 1 auto;
+    order: 1;
+    height: auto;
 
 }
 
 content .form {
+    display: flex;
     flex: 1 1 auto;
-    background: #1abc9c;
+    order: 2;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #222831;
+    max-width: 40%;
+    box-shadow: 0px 0px 30px 0px  #222831;
 
 }
 
+
+form label {
+
+    margin: 5px;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+
+}
+
+form ::placeholder {
+    text-align: center;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#button {
+
+    background-color: #fad34b;
+    color:#393e46;
+    padding: 10px;
+    font-weight: bold;
+    border: 0px;
+
+}
+
+content #joc {
+    flex: 1 1 auto;
+    justify-content: right;
+    text-align: right;
+    align-items: right;
+
+}
+
+
 footer {
     background-color: #222831;
-    display:flex;
+    color: #fce9a7;
     text-align: center;
     justify-content: center;
     padding: 30px;
 }
 
-footer p {
-    color: white;
+
+
+#joc {
+    padding-bottom: 10px;
+
+}
+
+#joc table {
+    padding: 10px;
+
+}
+#joc td {
+    width: 30px;
+    height: 30px;
+    
+}
+
+#joc td.dead {
+    background-color: rgb(141, 141, 141);
+
+}
+#joc td.alive {
+    background-color: #fad34b;
+
 }

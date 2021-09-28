@@ -21,17 +21,16 @@
       </div>
     </header>
     <content>
-        <div class="form">
-        <h1>Configura la teva partida:</h1>
-        <form>
-          <label for="nom">Nom de la partida</label>
-          <input
-            name="nom"
-            type="name"
-            class="form-control"
-            id="nom"
-            placeholder="GameOfLife"
-          />
+      <div id="joc">
+        <script src="gol.js"></script>
+        <!-- <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"
+      ></script>
+      <script type="text/javascript" src="./sketch.js"></script>
+      --></div>
+      <div class="form">
+        <h1>Quina es la grandaria que vols per l'univers?</h1>
         <form>
           <label for="cols">Columnes</label>
           <input
@@ -55,14 +54,15 @@
           />
         </form>
         <div>
-        <Input type='button' id="button" value='Començar';'/>
+          <Input type='button' id='btnstartstop' value='Start Reproducing' onclick='startStopGol();'/>
+<Input type='button' id='btnreset' value='Reset World' onclick='resetWorld();'/>
       </div>
       </div>
     </content>
     <footer>
       <p>
         «Azar es una palabra vacía de sentido; nada puede existir sin causa».<br />
-        - Voltaire
+        Voltaire
       </p>
     </footer>
   </body>

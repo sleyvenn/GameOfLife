@@ -1,26 +1,21 @@
-const rows = 15;
-const cols = 25;
-
-
-
-let started=false;// Set to true when use clicks start
+let comencar=false;// booleà per tal de iniciar o parar el programa
 let timer; //Controla las evoluciones
-let evolutionSpeed = 340;// 1000 = 1 segundo
-// Need 2D arrays. These are 1D
-let currGen =[rows];
-let nextGen =[rows];
+let evolutionSpeed = 340;// Variable per controlar la velocitat del programa
+
+let currGen =[files];
+let nextGen =[files];
 // Creates two-dimensional arrays
 let contador = 0;
 
 function createGenArrays() {
-    for (let i = 0; i < rows; i++) {
-        currGen[i] = new Array(cols);
-        nextGen[i] = new Array(cols);
+    for (let i = 0; i < files; i++) {
+        currGen[i] = new Array(columnes);
+        nextGen[i] = new Array(columnes);
     }
 }
 function initGenArrays() {
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < cols; j++) {
+    for (let i = 0; i < files; i++) {
+        for (let j = 0; j < columnes; j++) {
             currGen[i][j] = 0;
             nextGen[i][j] = 0;
             
@@ -32,11 +27,11 @@ function createWorld() {
     
     let tbl = document.createElement('table');
     tbl.setAttribute('id','worldgrid');
-for (let i = 0; i < rows; i++) {
+for (let i = 0; i < files; i++) {
         let tr = document.createElement('tr');
-        for (let j = 0; j < cols; j++) {
+        for (let j = 0; j < columnes; j++) {
             let cell = document.createElement('td');
-            cell.setAttribute('id', i + '_' + j);
+            cell.setAttribute('id', i + '+' + j);
             cell.setAttribute('class', 'dead');
             cell.addEventListener('click',cellClick);            
             tr.appendChild(cell);
@@ -46,7 +41,7 @@ for (let i = 0; i < rows; i++) {
     world.appendChild(tbl);
 }
 function cellClick() {
-    let loc = this.id.split("_");
+    let loc = this.id.split("+");
     let row = Number(loc[0]);
     let col = Number(loc[1]);
 // Toggle cell alive or dead
@@ -115,7 +110,7 @@ function getNeighborCount(row, col) {
     }
 // Make sure we are not on the first row last column
         // Upper right corner
-        if (nrow - 1 >= 0 && ncol + 1 < cols) {
+        if (nrow - 1 >= 0 && ncol + 1 < columnes) {
         //Check upper right neighbor
             if (currGen[nrow - 1][ncol + 1] == 1) 
                 count++;
@@ -127,20 +122,20 @@ function getNeighborCount(row, col) {
             count++;
     }
     // Make sure we are not on the last column
-    if (ncol + 1 < cols) {
+    if (ncol + 1 < columnes) {
         //Check right neighbor
         if (currGen[nrow][ncol + 1] == 1) 
             count++;
 
     }
 // Make sure we are not on the bottom left corner
-    if (nrow + 1 < rows && ncol - 1 >= 0) {
+    if (nrow + 1 < files && ncol - 1 >= 0) {
         //Check bottom left neighbor
         if (currGen[nrow + 1][ncol - 1] == 1) 
             count++;
     }
 // Make sure we are not on the bottom right
-    if (nrow + 1 < rows && ncol + 1 < cols) {
+    if (nrow + 1 < files && ncol + 1 < columnes) {
         //Check bottom right neighbor
         if (currGen[nrow + 1][ncol + 1] == 1) 
             count++;
@@ -148,7 +143,7 @@ function getNeighborCount(row, col) {
     
     
         // Make sure we are not on the last row
-    if (nrow + 1 < rows) {
+    if (nrow + 1 < files) {
         //Check bottom neighbor
         if (currGen[nrow + 1][ncol] == 1) 
             count++;
@@ -178,7 +173,7 @@ function updateWorld() {
         for (row in currGen) {
             for (col in currGen[row]) {
 
-                cell = document.getElementById(row + '_' + col);
+                cell = document.getElementById(row + '+' + col);
                 if (currGen[row][col] == 0) {
                     cell.setAttribute('class', 'dead');
                 } else {
@@ -192,7 +187,7 @@ function evolve(){
         createNextGen();
         updateCurrGen();
         updateWorld();
-if (started) {
+if (comencar) {
             timer = setTimeout(evolve, evolutionSpeed);
         }
 }
@@ -220,13 +215,13 @@ function sliderVelocitat() {
 function startStopGol(){
         let startstop=document.querySelector('#btnplay');
        
-        if (!started) {
-           started = true;
+        if (!comencar) {
+           comencar = true;
            startstop.value='Pausar';
            evolve();
          
          } else {
-            started = false;
+            comencar = false;
             startstop.value='Play';
             clearTimeout(timer); 
         }
@@ -241,9 +236,9 @@ function startStopGol(){
     }
 
 window.onload=()=>{
-    createWorld();// The visual table
-    createGenArrays();// current and next generations
-    initGenArrays();//Set all array locations to 0=dead
+    createWorld();// Taula visual
+    createGenArrays();// Actual i següent generació d'arrays
+    initGenArrays();// Inicia totes les localitzacions de l'array en td.mort
     updateTimer();
     sliderVelocitat();
 }

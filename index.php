@@ -1,3 +1,10 @@
+<?php session_start(); 
+
+
+$_SESSION['nom'] = "nom";
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,11 +15,11 @@
   <body>
     <header>
       <div class="titol">
-        <img src="img/logo.png" />
+          <a href="./"><img src="img/logo.png" /></a>
       </div>
       <div class="navmenu">
         <ul>
-          <li><a href="./index.html">Inici</a></li>
+          <li><a href="./">Inici</a></li>
           <li>Estadistiques</li>
           <li>Partides guardades</li>
           <li>Contacte</li>
@@ -22,16 +29,15 @@
     <content>
         <div class="form">
         <h1>Configura la teva partida:</h1>
-        <form action="config.php" method="post">
+        <form action="play.php" method="post">
           <label for="nom">Nom de la partida</label>
           <input
             name="nom"
-            type="name"
-            class="form-control"
-            id="nom"
+            type="text"
             placeholder="GameOfLife"
+            required
+
           />
-        <form>
           <label for="cols">Columnes</label>
           <input
             name="columnes"
@@ -41,6 +47,7 @@
             min="3"
             max="20"
             placeholder="3"
+            required
           />
           <label for="rows">Files</label>
           <input
@@ -51,10 +58,13 @@
             min="3"
             max="20"
             placeholder="3"
+            required
+
           />
+            <Input type='submit' id="button" value='Començar' onclick="./play.php" />
         </form>
         <div>
-        <Input type='submit' id="button" value='Començar' onclick="window.location.href='/play.html'"/>
+        
       </div>
       </div>
     </content>

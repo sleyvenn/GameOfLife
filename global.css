@@ -194,10 +194,12 @@ label {
 
 content #joc {
   flex: 1 1 auto;
+    order: 2;
   justify-content: right;
   text-align: right;
   align-items: right;
 }
+
 
 footer {
   background-color: #222831;

@@ -25,18 +25,30 @@
         <h1>Partides guardades</h1>
         <form action="play.php" method="post">
           
-          <select id="partides" name="partides" size="4">          
+          <select id="nom" name="nom" size="4">          
           
           <?php 
             
-            foreach($_COOKIE as $key => $value)
-            if(substr($key,0,4) == "GOL-"){
-              $key = substr($key,4);
-              echo "<option value='$key'>$key </option>";
+            foreach($_COOKIE as $key => $value){
+            
+              if(substr($key,0,4) == "GOL-"){
+                $key = substr($key,4);
+                $key = str_replace('+', ' ', $key);
+
+                list($columnes, $files) = explode("&", $value);
+                
+                echo "<option value='$key'>$key</option>";
+              
+              } 
+
             }
             
           ?>                
           </select>
+
+          <!-- Aquest loop serveix per identificar la cookie i després eliminar el prefix, per tal de que només agafi les cookies del joc.
+               També afegeifo un str_replace per tal de reincorporar l'espai que había modificat per poder afegir el nom de la partida a la cookie (ja que no accepta espais).
+               És un petit detall visual. -->
           
             <Input type='submit' id="button" value='Carregar' />
         </form>

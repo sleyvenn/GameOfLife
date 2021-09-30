@@ -13,6 +13,7 @@ function createGenArrays() {
         nextGen[i] = new Array(cols);
     }
 }
+
 function initGenArrays() {
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
@@ -42,9 +43,7 @@ for (let i = 0; i < rows; i++) {
 }
 
 function setRandom(){
-    
-    initGenArrays();
-
+     
     for (row in currGen) {
         
         for (col in currGen[row]) {
@@ -53,20 +52,23 @@ function setRandom(){
 
             var myArray = ['alive','dead'];
             var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+            //Faig un Math.Random per determinar de forma aleatoria si està viu o mort amb un array
 
             if (randomItem == "alive") {
                 cell.setAttribute('class', 'alive');
+                currGen[row][col] = 0;
 
             } else {
                 cell.setAttribute('class', 'dead');
+                currGen[row][col] = 1;
             }
+            
         }
+
     }
 
-    updateCurrGen();
-    
     contador=0;
-    updateTimer;
+    updateTimer();
 
 }
 
@@ -235,9 +237,9 @@ function updateTimer(){
 function sliderVelocitat() {
     var velocitat = document.getElementById("speed");
     var output = document.getElementById("valor");
-    output.innerHTML = velocitat.value; // Display the default slider value
+    output.innerHTML = velocitat.value; 
     
-    // Update the current slider value (each time you drag the slider handle)
+    
     velocitat.oninput = function() {
       output.innerHTML = this.value;
       evolutionSpeed = this.value * 120;
@@ -262,6 +264,25 @@ function startStopGol(){
         }
         
     }
+
+function onlyStartJoc(){
+    let startstop=document.querySelector('#btnplay');
+    comencar = true;
+    startstop.value='Pausar';
+    evolve();
+
+}
+
+function onlyStopJoc(){
+    let startstop=document.querySelector('#btnplay');
+    comencar = false;
+    startstop.value='Play';
+    clearTimeout(timer);
+    contador=0;
+    updateTimer;
+
+
+}
  
   
 function resetWorld() {
@@ -279,6 +300,8 @@ function resetWorld() {
     initGenArrays();
     contador = 0;
     updateTimer();
+       
+    onlyStopJoc(); 
 }
 
 window.onload=()=>{

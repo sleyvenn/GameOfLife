@@ -231,3 +231,33 @@ footer {
 #joc td.alive {
   background-color: #fad34b;
 }
+
+select {
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+  background: #fad34b;
+  color: #393e46;
+  font-weight: bold;
+}    
+
+select::content{
+  background: #393e46;
+  color: #fad34b;
+
+}
+
+option {
+  font-weight: bold;
+}
+
+
+option:hover {
+  background: #393e46;
+  color: #fad34b;
+
+
+}
+
+
+

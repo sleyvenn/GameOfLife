@@ -1,18 +1,27 @@
-<?php session_start();
+<?php 
 
-    $_SESSION['nom'] = $_POST['nom'];
-    $_SESSION['columnes'] = $_POST['columnes'];
-    $_SESSION['files'] = $_POST['files'];
+  $nom = $_POST['nom'];
+  $nomReplace = validate_input($_POST['nom']);
+  $columnes = validate_input($_POST['columnes']);
+  $files = validate_input($_POST['files']);
 
-?>
+  $values = $columnes . "&" . $files;
+    
+  setcookie("GOL-" . $nomReplace, $values);
 
-<!-- Inicio la sessió per tal d'afegir amb el mètode POST totes les variables del formulari -->
+  function validate_input($data) {
+    $data = str_replace(' ', '', $data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+  ?>
 
 <script>
     
-    var nom = "<?php echo $_SESSION['nom'] ?>";
-    var columnes = "<?php echo $_SESSION['columnes'] ?>";
-    var files = "<?php echo $_SESSION['files'] ?>";
+    var cols = "<?php echo $columnes ?>";
+    var rows = "<?php echo $files ?>";
    
     
 </script>
@@ -36,24 +45,26 @@
         <ul>
           <li><a href="./">Inici</a></li>
           <li>Estadistiques</li>
-          <li>Partides guardades</li>
+          <li><a href="./partides.php">Partides guardades</a></li>
           <li>Contacte</li>
         </ul>
       </div>
     </header>
     <content>
+      <h1>
         <?php 
                 
-            echo "<h1> {$_SESSION['nom']}</h1><br> ";
+            echo "{$nom}";
               
         ?>
+        </h1><br>
       <div id="joc">
           
       </div>
         <div class="play">
           <Input type='button' id='btnplay' value='Play' onclick='startStopGol();'/>
           <Input type='button' id='btnreset' value='Reiniciar' onclick='resetWorld();'/>
-          
+          <Input type='button' id='btnplay' value='Aleatori' onclick='setRandom();'/>
           <div id="cicles"></div>
           
           </div>

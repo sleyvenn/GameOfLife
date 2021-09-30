@@ -1,10 +1,3 @@
-<?php session_start(); 
-
-
-$_SESSION['nom'] = "nom";
-
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,7 +14,7 @@ $_SESSION['nom'] = "nom";
         <ul>
           <li><a href="./">Inici</a></li>
           <li>Estadistiques</li>
-          <li>Partides guardades</li>
+          <li><a href="./partides.php">Partides guardades</a></li>
           <li>Contacte</li>
         </ul>
       </div>
@@ -61,7 +54,7 @@ $_SESSION['nom'] = "nom";
             required
 
           />
-            <Input type='submit' id="button" value='Començar' onclick="./play.php" />
+            <Input type='submit' id="button" value='Començar' />
         </form>
         <div>
         

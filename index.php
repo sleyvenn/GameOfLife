@@ -22,7 +22,7 @@
     <content>
         <div class="form">
         <h1>Configura la teva partida:</h1>
-        <form action="play.php" method="post">
+        <form action="./novaPartida.php" method="post">
           <label for="nom">Nom de la partida</label>
           <input
             name="nom"

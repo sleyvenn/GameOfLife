@@ -120,12 +120,12 @@ content .play {
 }
 
 content .velocitat {
-    display: flex;
-    order: 3;
-    margin: 10px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  order: 3;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 form label {
@@ -194,12 +194,11 @@ label {
 
 content #joc {
   flex: 1 1 auto;
-    order: 2;
+  order: 2;
   justify-content: right;
   text-align: right;
   align-items: right;
 }
-
 
 footer {
   display: flex;
@@ -221,7 +220,6 @@ footer {
 
 #joc table {
   padding: 10px;
-  
 }
 #joc td {
   width: 30px;
@@ -242,25 +240,67 @@ select {
   background: #fad34b;
   color: #393e46;
   font-weight: bold;
-}    
+}
 
-select::content{
-  background: #393e46;
+select::content {
+  background: #71767e;
   color: #fad34b;
-
 }
 
 option {
   font-weight: bold;
 }
 
-
 option:hover {
   background: #393e46;
   color: #fad34b;
+}
 
+.stats {
+  display: flex;
+  flex-direction:row;
+  align-items: center;
 
 }
 
+.stats #vius {
+  margin-top: 5px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: #fad34b;
+  color: #393e46;
+  font-weight: bold;
+}
 
+.stats #columnes {
+  margin-top: 5px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 35px;
+  height: 70px;
+  background-color: #fad34b;
+  color: #393e46;
+  font-weight: bold;
+}
 
+.stats #files {
+  margin-top: 5px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 70px;
+  height: 35px;
+  background-color: #fad34b;
+  color: #393e46;
+  font-weight: bold;
+}

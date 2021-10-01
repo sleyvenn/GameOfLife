@@ -267,6 +267,7 @@ function startStopGol(){
 
 function onlyStartJoc(){
     let startstop=document.querySelector('#btnplay');
+    
     comencar = true;
     startstop.value='Pausar';
     evolve();
@@ -300,8 +301,31 @@ function resetWorld() {
     initGenArrays();
     contador = 0;
     updateTimer();
-       
     onlyStopJoc(); 
+
+}
+
+function StartStats() {
+
+document.getElementById("nom").addEventListener("select", showStats());
+    
+}
+
+function showStats() {
+
+    showCols();
+    showRows();
+
+}
+
+function showCols(){
+    document.getElementById("columnes").innerText= contador;
+
+}
+
+function showRows(){
+    document.getElementById("files").innerText= files;
+
 }
 
 window.onload=()=>{

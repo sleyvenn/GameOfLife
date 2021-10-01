@@ -1,3 +1,19 @@
+<?php
+
+  //list($columnes, $files) = explode("&", $_COOKIE['GOL-Pokemon']);
+
+?>
+
+
+
+<script>
+    
+    const cols = "<?php echo $columnes ?>";
+    const rows = "<?php echo $files ?>";
+   
+    
+</script>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,9 +39,9 @@
     <content>
         <div class="form">
         <h1>Partides guardades</h1>
-        <form action="play.php" method="post">
+        <form action="./cargaPartida.php" method="post">
           
-          <select id="nom" name="nom" size="4">          
+          <select id="nom" name="nom" size="10">          
           
           <?php 
             
@@ -49,9 +65,18 @@
           <!-- Aquest loop serveix per identificar la cookie i després eliminar el prefix, per tal de que només agafi les cookies del joc.
                També afegeifo un str_replace per tal de reincorporar l'espai que había modificat per poder afegir el nom de la partida a la cookie (ja que no accepta espais).
                És un petit detall visual. -->
+               
+               <div class="stats">
+                <div id="vius">33</div>    
+                <div id="columnes">15</div>
+                <div id="files">12</div>
+          </div>
           
             <Input type='submit' id="button" value='Carregar' />
         </form>
+
+        
+          
         <div>
         
       </div>
@@ -64,7 +89,7 @@
         Voltaire
       </p>
     </footer>
-
+    <script src="joc.js"></script>
   
   </body>
 </html>

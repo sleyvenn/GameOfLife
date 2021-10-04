@@ -1,46 +1,25 @@
-<?php 
+<?php
+$nomCookie = $_GET['nom'];
 
-$nom = $_POST['nom'];
+$nomCookie = str_replace(' ', '+', $nomCookie);
+$nom = substr($nomCookie,4);
+$nom = str_replace('+', ' ', $nom);
 
-$nomCookie = "GOL-" . str_replace(' ', '+', $nom);
-//echo $nomCookie . " ";
+$cookie = json_decode($_COOKIE[$nomCookie]);
 
-if(isset($_COOKIE[$nomCookie]) == $nomCookie) {
- 
-    list($columnes, $files) = explode("&", $_COOKIE[$nomCookie]);
-    //echo $columnes . " " . $files;
+
+
+?>
 
   
-} //Si es crida una partida guardada desde una cookie, es compleix aquest condicional.
-
-else { //Si es crea una nova partida, es crea una nova cookie.
-
-    $nomReplace = validate_input($_POST['nom']);
-    $columnes = validate_input($_POST['columnes']);
-    $files = validate_input($_POST['files']);
-
-    $values = $columnes . "&" . $files;
-      
-    setcookie($nomCookie, $values, strtotime("+7 days"));
-
-  }
-
-  function validate_input($data) {
-    $data = str_replace(' ', '+', $data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
 
 
-  ?>
 
 <script>
     
-    var cols = "<?php echo $columnes ?>";
-    var rows = "<?php echo $files ?>";
+    const cols = "<?php echo $cookie->columnes; ?>";
+    const rows = "<?php echo $cookie->files; ?>";
    
-    
 </script>
 
  <!-- Aquest script es per recuperar la sessió i guardarlo en variables javascript, per tal de enviarles a l'arxiu del joc -->
@@ -82,7 +61,7 @@ else { //Si es crea una nova partida, es crea una nova cookie.
           <Input type='button' id='btnplay' value='Play' onclick='startStopGol();'/>
           <Input type='button' id='btnreset' value='Reiniciar' onclick='resetWorld();'/>
           <Input type='button' id='btnplay' value='Aleatori' onclick='setRandom();'/>
-          <Input type='button' id='btnplay' value='Guardar' onclick='saveState();'/>
+          <Input type='button' id='btnplay' value='Guardar' onclick='saveStatus();'/>
           <div id="cicles"></div>
           
           </div>

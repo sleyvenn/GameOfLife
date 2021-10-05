@@ -7,8 +7,6 @@ $nom = str_replace('+', ' ', $nom);
 
 $cookie = json_decode($_COOKIE[$nomCookie]);
 
-
-
 ?>
 
   
@@ -61,7 +59,10 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
           <Input type='button' id='btnplay' value='Play' onclick='startStopGol();'/>
           <Input type='button' id='btnreset' value='Reiniciar' onclick='resetWorld();'/>
           <Input type='button' id='btnplay' value='Aleatori' onclick='setRandom();'/>
+<<<<<<< HEAD:jugar.php
           <Input type='button' id='btnplay' value='Guardar' onclick='saveStatus();'/>
+=======
+>>>>>>> a99c6de20a9a87d297186c5c15046a60b471ba18:play.php
           <div id="cicles"></div>
           
           </div>

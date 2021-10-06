@@ -7,22 +7,7 @@ $nom = str_replace('+', ' ', $nom);
 
 $cookie = json_decode($_COOKIE[$nomCookie]);
 
-
-
 ?>
-
-  
-
-
-
-<script>
-    
-    const cols = "<?php echo $cookie->columnes; ?>";
-    const rows = "<?php echo $cookie->files; ?>";
-   
-</script>
-
- <!-- Aquest script es per recuperar la sessió i guardarlo en variables javascript, per tal de enviarles a l'arxiu del joc -->
 
 <!DOCTYPE html>
 <html>
@@ -58,13 +43,12 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
           
       </div>
         <div class="play">
-          <Input type='button' id='btnplay' value='Play' onclick='startStopGol();'/>
+          <Input type='button' id='btnplay' value='Jugar' onclick='startStopGol();'/>
           <Input type='button' id='btnreset' value='Reiniciar' onclick='resetWorld();'/>
           <Input type='button' id='btnplay' value='Aleatori' onclick='setRandom();'/>
           <Input type='button' id='btnplay' value='Guardar' onclick='saveStatus();'/>
-          <div id="cicles"></div>
-          
           </div>
+          <div class="stats">Generació: <span id="cicles"></span></div>
           <div class="velocitat"><label for="speed">Velocitat: <span id="valor"></span></label>
             <Input type="range" min="1" max="10" value="5" class="slider" id="speed">
           </div>

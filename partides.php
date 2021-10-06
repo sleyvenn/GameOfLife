@@ -6,7 +6,6 @@
     <title>Game of Life</title>
   </head>
   <body>
-      
     <header>
       <div class="titol">
         <a href="./"><img src="img/logo.png" /></a>
@@ -47,12 +46,6 @@
           <!-- Aquest loop serveix per identificar la cookie i després eliminar el prefix, per tal de que només agafi les cookies del joc.
                També afegeifo un str_replace per tal de reincorporar l'espai que había modificat per poder afegir el nom de la partida a la cookie (ja que no accepta espais).
                És un petit detall visual. -->
-               
-               <div class="stats">
-                <div id="vius">33</div>    
-                <div id="columnes">15</div>
-                <div id="files">12</div>
-          </div>
           
             <Input type='submit' id="button" value='Carregar' />
         </form>
@@ -71,7 +64,5 @@
         Voltaire
       </p>
     </footer>
-    <script src="joc.js"></script>
-  
   </body>
 </html>

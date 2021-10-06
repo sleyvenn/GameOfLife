@@ -2,10 +2,44 @@ let comencar = false; // booleà per tal de iniciar o parar el programa.
 let timer; //Controla las evoluciones.
 let evolutionSpeed = 340; // Variable per controlar la velocitat del programa.
 
-let currGen = [rows]; // Arrays
-let nextGen = [rows]; // Bidimensional.
+let nomCookie = window.location.href;
+nomCookie = nomCookie.substr(42);
+let values = getCookie(nomCookie);
+
+values = JSON.parse(values);
+const cols = values["columnes"];
+const rows = values["files"];
+let partida = values["partida"];
+let currGen = [rows]; 
+let nextGen = [rows]; 
 
 let contador = 0;
+
+function verifyCookie() {  
+
+  if(partida == "empty") {
+
+    createWorld();
+    createGenArrays();
+
+  }
+
+  else {
+
+
+    recoverWorld();
+    createGenArrays();
+
+  }
+
+ 
+  initGenArrays();
+  updateTimer();
+  sliderVelocitat();
+
+}
+
+
 
 function createGenArrays() {
   // Actual i següent generació d'arrays.
@@ -19,13 +53,27 @@ function initGenArrays() {
   // Inicia totes les localitzacions de l'array en td.mort.
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
-      currGen[i][j] = 0;
-      nextGen[i][j] = 0;
+
+      if(partida == "empty") {
+        
+        currGen[i][j] = 0;
+        nextGen[i][j] = 0;
+      }
+
+      else {
+        currGen[i][j] = partida[i][j];
+        nextGen[i][j] = partida[i][j];
+
+      }
+
     }
+      
   }
 }
+
 function createWorld() {
   // Funció per crear l'univers.
+  
   let world = document.querySelector("#joc");
 
   let tbl = document.createElement("table");
@@ -36,6 +84,32 @@ function createWorld() {
       let cell = document.createElement("td");
       cell.setAttribute("id", i + "+" + j);
       cell.setAttribute("class", "dead");
+      cell.addEventListener("click", cellClick);
+      tr.appendChild(cell);
+    }
+    tbl.appendChild(tr);
+  }
+  world.appendChild(tbl);
+}
+
+function recoverWorld() {
+  // Funció per crear l'univers.
+  
+  let world = document.querySelector("#joc");
+
+  let tbl = document.createElement("table");
+  tbl.setAttribute("id", "worldgrid");
+  for (let i = 0; i < rows; i++) {
+    let tr = document.createElement("tr");
+    for (let j = 0; j < cols; j++) {
+      let cell = document.createElement("td");
+      cell.setAttribute("id", i + "+" + j);
+      if(partida[i][j] == 0) {
+        cell.setAttribute("class", "dead");
+      } else {
+        cell.setAttribute("class", "alive");
+      }
+        
       cell.addEventListener("click", cellClick);
       tr.appendChild(cell);
     }
@@ -56,10 +130,10 @@ function setRandom() {
 
       if (randomItem == "alive") {
         cell.setAttribute("class", "alive");
-        currGen[row][col] = 0;
+        currGen[row][col] = 1;
       } else {
         cell.setAttribute("class", "dead");
-        currGen[row][col] = 1;
+        currGen[row][col] = 0;
       }
     }
   }
@@ -212,7 +286,7 @@ function startStopGol() {
     evolve();
   } else {
     comencar = false;
-    startstop.value = "Play";
+    startstop.value = "Jugar";
     clearTimeout(timer);
   }
 }
@@ -226,9 +300,10 @@ function onlyStartJoc() {
 }
 
 function onlyStopJoc() {
+  // Funció que para el joc (Feta per el botó Reiniciar).
   let startstop = document.querySelector("#btnplay");
   comencar = false;
-  startstop.value = "Play";
+  startstop.value = "Jugar";
   clearTimeout(timer);
   contador = 0;
   updateTimer;
@@ -239,10 +314,11 @@ function resetWorld() {
     for (col in currGen[row]) {
       cell = document.getElementById(row + "+" + col);
       cell.setAttribute("class", "dead");
+      currGen[row][col] = 0;
+      nextGen[row][col] = 0;
     }
   }
 
-  initGenArrays();
   contador = 0;
   updateTimer();
   onlyStopJoc();
@@ -253,15 +329,12 @@ function StartStats() {
 }
 
 function saveStatus() {
-  //Funció per guardar la partida amb l'estat actual.
+  // Funció per guardar la partida amb l'estat actual.
 
-  let nomCookie = window.location.href;
-  nomCookie = nomCookie.substr(42);
+  var obj = {"columnes": cols, "files": rows, "partida": currGen};
+  var json = JSON.stringify(obj);
 
-  let values = getCookie(nomCookie).split("&");
-
-  setCookie(nomCookie,values[0] + '&' + values[1] + '&' + currGen);
-  console.log(currGen);
+  setCookie(nomCookie, json);
 
 }
 
@@ -283,20 +356,15 @@ function getCookie(cname) {
 }
 
 function setCookie(cname, cvalue, exdays) {
+  // Funció que crea la cookie.
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/GameOfLife";
   }
 
-function getWorld() {
-  return table;
-}
-
 window.onload = () => {
-  createWorld();
-  createGenArrays();
-  initGenArrays();
-  updateTimer();
-  sliderVelocitat();
-};
+  
+  verifyCookie();
+
+}

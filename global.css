@@ -9,6 +9,7 @@ body {
   background-color: #2e333a;
   font-family: "Helvetica";
   color: #fad34b;
+  font-size: 14px;
 }
 
 link,
@@ -89,7 +90,6 @@ content .form {
   display: flex;
   flex: 1 1 auto;
   order: 2;
-  padding: 30px;
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -105,24 +105,48 @@ content .play {
   order: 2;
 }
 
-content .stats {
+content .box-class {
+  display: flex;
+  flex-direction: row;
   background-color: #fad34b;
   order: 4;
+  width: 200px;
+
+}
+
+content .stats {
+  background-color: #fad34b;
+  display: flex;
+  flex-direction: row;
   color: #393e46;
   padding: 10px;
   font-weight: bold;
-  width: 135px;
   border: 0px;
-  margin: 10px;
+}
+
+content .stats #titol {
+  order: 1;
+  width: 100%;
+
 }
 
 content #cicles {
+  order: 2;
   justify-content: center;
   text-align: center;
   align-items: center;
+  padding-left: 2px;
 
 }
 
+content #vius {
+  order: 2;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-left: 2px;
+
+}
 
 
 content .velocitat {

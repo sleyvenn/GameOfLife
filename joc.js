@@ -14,6 +14,7 @@ let currGen = [rows];
 let nextGen = [rows]; 
 
 let contador = 0;
+let vius = 0;
 
 function verifyCookie() {  
 
@@ -34,6 +35,7 @@ function verifyCookie() {
 
  
   initGenArrays();
+  showLifes();
   updateTimer();
   sliderVelocitat();
 
@@ -85,11 +87,15 @@ function createWorld() {
       cell.setAttribute("id", i + "+" + j);
       cell.setAttribute("class", "dead");
       cell.addEventListener("click", cellClick);
+      
       tr.appendChild(cell);
     }
+    
     tbl.appendChild(tr);
   }
   world.appendChild(tbl);
+  
+
 }
 
 function recoverWorld() {
@@ -140,6 +146,7 @@ function setRandom() {
 
   contador = 0;
   updateTimer();
+  showLifes();
   
 }
 
@@ -156,6 +163,9 @@ function cellClick() {
     this.setAttribute("class", "alive");
     currGen[row][col] = 1;
   }
+
+  showLifes();
+
 }
 function createNextGen() {
   for (row in currGen) {
@@ -180,11 +190,13 @@ function createNextGen() {
 
           nextGen[row][col] = 1;
         }
+        
       }
     }
   }
   contador++;
   updateTimer();
+  showLifes();
   // Incremento el contador per tal de mostrar els cicles del joc.
 }
 function getNeighborCount(row, col) {
@@ -235,6 +247,7 @@ function updateCurrGen() {
       currGen[row][col] = nextGen[row][col];
 
       nextGen[row][col] = 0;
+
     }
   }
 }
@@ -264,7 +277,27 @@ function evolve() {
 
 function updateTimer() {
   document.getElementById("cicles").innerText = contador;
+  
 }
+
+function showLifes() {
+
+  
+  
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+
+      
+        
+        if (currGen[i][j] == 1) vius++;
+      
+  }
+}
+
+  document.getElementById("vius").innerText = vius;
+  vius = 0;
+}
+
 
 function sliderVelocitat() {
   var velocitat = document.getElementById("speed");
@@ -307,6 +340,7 @@ function onlyStopJoc() {
   clearTimeout(timer);
   contador = 0;
   updateTimer;
+  showLifes();
 }
 
 function resetWorld() {
@@ -321,6 +355,7 @@ function resetWorld() {
 
   contador = 0;
   updateTimer();
+  showLifes();
   onlyStopJoc();
 }
 

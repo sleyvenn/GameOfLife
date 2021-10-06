@@ -49,8 +49,11 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
           <Input type='button' id='btnplay' value='Guardar' onclick='saveStatus();'/>
           
           </div>
-          <div class="stats">Generació: </div><span id="cicles"></span>
-          <div class="velocitat"><label for="speed">Velocitat: <span id="valor"></span></label>
+          <div class="box-class">
+          <div class='stats'><div id='titol'>Generació: </div><span id="cicles"></span></div>
+          <div class='stats'><div id='titol'>Vius: </div><span id="vius"></span></div>
+</div>
+          <div class='velocitat'><label for="speed">Velocitat: <span id="valor"></span></label>
           <Input type="range" min="1" max="10" value="5" class="slider" id="speed">
           </div>
       </div>

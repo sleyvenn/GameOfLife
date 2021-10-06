@@ -46,19 +46,12 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
           <Input type='button' id='btnplay' value='Jugar' onclick='startStopGol();'/>
           <Input type='button' id='btnreset' value='Reiniciar' onclick='resetWorld();'/>
           <Input type='button' id='btnplay' value='Aleatori' onclick='setRandom();'/>
-<<<<<<< HEAD:jugar.php
           <Input type='button' id='btnplay' value='Guardar' onclick='saveStatus();'/>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> a99c6de20a9a87d297186c5c15046a60b471ba18:play.php
-          <div id="cicles"></div>
           
->>>>>>> 14c9442462fd5f22eb6f1b4ad59c3f2f7857ab75
           </div>
-          <div class="stats">Generació: <span id="cicles"></span></div>
+          <div class="stats">Generació: </div><span id="cicles"></span>
           <div class="velocitat"><label for="speed">Velocitat: <span id="valor"></span></label>
-            <Input type="range" min="1" max="10" value="5" class="slider" id="speed">
+          <Input type="range" min="1" max="10" value="5" class="slider" id="speed">
           </div>
       </div>
     </content>

@@ -8,7 +8,7 @@ Primer proyecto del segundo curso del ciclo superior de Desarrollo de Aplicacion
 
 ## Recursos 🌿
 
-* The Game of Life Using JavaScript](https://javascript.plainenglish.io/the-game-of-life-using-javascript-fc1aaec8274f) - Tutorial de como hacer Game of Life en Javascript.
+* [The Game of Life Using JavaScript](https://javascript.plainenglish.io/the-game-of-life-using-javascript-fc1aaec8274f) - Tutorial de como hacer Game of Life en Javascript.
 
 ## Autores ✒️
 

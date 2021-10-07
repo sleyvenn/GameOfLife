@@ -28,7 +28,7 @@ Primer projecte del segón curs del Cicle Superior de Desenvolupament d'Aplicaci
 
 ## Autor ✒️
 
-* **Adrián Pons**
+* **@sleyvenn (Adrián Pons)**
 
 ## Gràcies 🎁
 

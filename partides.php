@@ -1,19 +1,3 @@
-<?php
-
-  //list($columnes, $files) = explode("&", $_COOKIE['GOL-Pokemon']);
-
-?>
-
-
-
-<script>
-    
-    const cols = "<?php echo $columnes ?>";
-    const rows = "<?php echo $files ?>";
-   
-    
-</script>
-
 <!DOCTYPE html>
 <html>
   <head>

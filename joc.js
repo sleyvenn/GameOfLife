@@ -3,17 +3,15 @@ let timer; //Controla las evoluciones.
 let evolutionSpeed = 340; // Variable per controlar la velocitat del programa.
 
 let nomCookie = window.location.href;
-nomCookie = nomCookie.substr(42);
+nomCookie = nomCookie.split('?nom=');
 
-let values = getCookie(nomCookie);
-
-var cols = values["columnes"];
-var rows = values["files"];
-let partida = values["partida"];
-var creacio = values["creacio"];
+let values = getCookie(nomCookie[1]);
 
 values = JSON.parse(values);
-
+const cols = values["columnes"];
+const rows = values["files"];
+let partida = values["partida"];
+var creacio = values["creacio"];
 let currGen = [rows]; 
 let nextGen = [rows]; 
 

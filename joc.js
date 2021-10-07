@@ -7,11 +7,13 @@ nomCookie = nomCookie.substr(42);
 
 let values = getCookie(nomCookie);
 
-values = JSON.parse(values);
-const cols = values["columnes"];
-const rows = values["files"];
+var cols = values["columnes"];
+var rows = values["files"];
 let partida = values["partida"];
 var creacio = values["creacio"];
+
+values = JSON.parse(values);
+
 let currGen = [rows]; 
 let nextGen = [rows]; 
 

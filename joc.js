@@ -2,10 +2,13 @@ let comencar = false; // booleà per tal de iniciar o parar el programa.
 let timer; //Controla las evoluciones.
 let evolutionSpeed = 340; // Variable per controlar la velocitat del programa.
 
-let nomCookie = window.location.href;
-nomCookie = nomCookie.split('?nom=');
+var nomCookie = window.location.search;
+nomCookie = new URLSearchParams(nomCookie);
+nomCookie = nomCookie.get('nom');
+nomCookie = nomCookie.replace(" ", "+");
+console.log(nomCookie);
 
-let values = getCookie(nomCookie[1]);
+let values = getCookie(nomCookie);
 
 values = JSON.parse(values);
 const cols = values["columnes"];
@@ -404,7 +407,7 @@ function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/GameOfLife";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
 window.onload = () => {

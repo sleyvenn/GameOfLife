@@ -27,37 +27,6 @@ Primer projecte del segón curs del Cicle Superior de Desenvolupament d'Aplicaci
 * [Plantilla README](https://gist.github.com/Villanuevand/6386899f70346d4580c723232524d35a) - Plantilla README en espanyol, feta per @Villanuevand.
 * [Joc de la vida](https://ca.wikipedia.org/wiki/Joc_de_la_vida) - Viquipèdia del Joc de la vida on explica les regles, patrons i origen del joc.
 
-## Diagrama de casos d'us 🧭
-
-```mermaid
-sequenceDiagram
-Usuari ->> index.php: Emplena el formulari i<br> clica en començar.
-index.php -->> novaPartida.php: Envia les variables en mètode POST.
-novaPartida.php -->> Cookie: Agafa les variables i crea una cookie.
-novaPartida.php -->> jugar.php: Redirigeix a la pàgina del joc.
-joc.js -->> Cookie: Agafa les variables.
-joc.js -->> Cookie: Crea una nova cookie amb<br>l'array (univers sencer) amb<br>les cel·les mortes si es una partida<br>nova i sino agafa la partida guardada.
-joc.js -->> jugar.php: Envía les dades per mostrar-ho en pantalla.
-Usuari ->> jugar.php: Pot activar o desactivar les cel·les vives o mortes fent click.
-Usuari ->> jugar.php: Clicar el botó [Jugar].
-jugar.php -->> joc.js: Booleà comencar=true.<br>S'activa la funció per activar el joc.
-Usuari ->> jugar.php: Clicar el botó [Pausar].
-jugar.php -->> joc.js: Booleà comencar=false.<br>S'activa la funció per desactivar el joc.
-Usuari ->> jugar.php: Clicar el botó [Aleatori].
-jugar.php -->> joc.js: S'activa la funció per <br>randomitzar les cel·les vives i mortes.
-Usuari ->> jugar.php: Clicar el botó [Reiniciar].
-jugar.php -->> joc.js: S'activa la funció per <br>convertir totes les cel·les en mortes.
-Usuari ->> jugar.php: Clicar el botó [Guardar].
-jugar.php -->> joc.js: Esborra la cookie actual.
-joc.js -->> Cookie: Genera una de nova cambiant només l'array de l'univers.
-Usuari ->> partides.php: L'usuari clica a Partides guardades. On es mostraràn totes les partides que hi ha.
-partides.php ->> cargaPartida.php: L'usuari ha demanat la partida a carregar. 
-cargaPartida.php ->> jugar.php: Es redirigeix al joc.
-joc.js -->> Cookie: Agafa la cookie i la decodifica per recarregar la partida de nou.
-
-```
-
-
 ## Autor ✒️
 
 * **@sleyvenn (Adrián Pons)**

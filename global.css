@@ -6,6 +6,7 @@
 }
 
 body {
+  background-image: url("img/wallpaper.png");
   background-color: #2e333a;
   font-family: "Helvetica";
   color: #fad34b;
@@ -14,14 +15,15 @@ body {
 
 link,
 a {
-  color: #fad34b;
+  color: #ffdd62;
   font-style: normal;
+  font-weight: bold;
   text-decoration: none;
   font-size: bold;
 }
 
-link:hover {
-  border-bottom: 1px #fad34b solid;
+link:hover, a:hover {
+  color: 1px #fff3cc;
 }
 
 header {
@@ -241,8 +243,6 @@ content #joc {
 
 footer {
   display: flex;
-  background-color: #222831;
-  color: #fce9a7;
   text-align: center;
   justify-content: center;
   padding: 30px;
@@ -259,6 +259,7 @@ footer {
 
 #joc table {
   padding: 10px;
+  background-color: #393e46;
 }
 #joc td {
   width: 20px;

@@ -15,20 +15,13 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="./global.css" title="style" />
     <title>Game of Life</title>
+    <script src="joc.js"></script>
+    <script src="./sections/sections.js"></script>
   </head>
   <body>
       
     <header>
-      <div class="titol">
-        <a href="./"><img src="img/logo.png" /></a>
-      </div>
-      <div class="navmenu">
-        <ul>
-          <li><a href="./">Inici</a></li>
-          <li><a href="./partides.php">Partides guardades</a></li>
-          <li><a href="https://github.com/sleyvenn" target="_blank">Contacte</a></li>
-        </ul>
-      </div>
+    <?php include "./sections/header.html" ?>
     </header>
     <content>
       <h1>
@@ -38,7 +31,8 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
               
         ?>
         </h1><br>
-      <div id="joc">
+        
+        <div id="joc">
           
       </div>
         <div class="play">
@@ -58,12 +52,7 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
       </div>
     </content>
     <footer>
-      <p>
-        «Azar es una palabra vacía de sentido; nada puede existir sin causa».<br />
-        Voltaire
-      </p>
+      <?php include "./sections/footer.html" ?>
     </footer>
-
-    <script src="joc.js"></script>
   </body>
 </html>

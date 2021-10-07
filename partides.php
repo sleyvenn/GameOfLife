@@ -23,16 +23,7 @@
   </head>
   <body>
     <header>
-      <div class="titol">
-        <a href="./"><img src="img/logo.png" /></a>
-      </div>
-      <div class="navmenu">
-        <ul>
-          <li><a href="./">Inici</a></li>
-          <li><a href="./partides.php">Partides guardades</a></li>
-          <li><a href="https://github.com/sleyvenn" target="_blank">Contacte</a></li>
-        </ul>
-      </div>
+    <?php include "./sections/header.html" ?>
     </header>
     <content>
         <div class="form">
@@ -74,10 +65,7 @@
       
     </content>
     <footer>
-      <p>
-        «Azar es una palabra vacía de sentido; nada puede existir sin causa».<br />
-        Voltaire
-      </p>
+      <?php include "./sections/footer.html" ?>
     </footer>
   </body>
 </html>

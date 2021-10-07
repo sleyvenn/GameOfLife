@@ -10,7 +10,7 @@ $creacio = date('d-m-Y');
 
 $toCookie = array("creacio"=>$creacio, "columnes"=>$columnes, "files"=>$files, "partida"=>$partida);
 $jsonValors = json_encode($toCookie);
-setcookie($nomCookie, $jsonValors);
+setcookie($nomCookie, $jsonValors, strtotime("+1 month"), "/");
 
 
 function validate_input($data) {

@@ -44,6 +44,7 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
           <div class="box-class">
           <div class='stats'><div id='titol'>Generació: </div><span id="cicles"></span></div>
           <div class='stats'><div id='titol'>Vius: </div><span id="vius"></span></div>
+          <div class='stats'><div id='titol'>Morts: </div><span id="morts"></span></div>
 </div>
           <div class='velocitat'><label for="speed">Velocitat: <span id="valor"></span></label>
           <Input type="range" min="1" max="10" value="5" class="slider" id="speed">

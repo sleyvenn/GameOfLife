@@ -34,6 +34,7 @@ header {
   box-shadow: 0px 10px 5px #222831;
   max-height: 300px;
   flex-flow: row nowrap;
+  padding: 5px;
 }
 
 header .titol {
@@ -113,7 +114,8 @@ content .box-class {
   flex-direction: row;
   background-color: #fad34b;
   order: 4;
-  width: 200px;
+  width: 20%;
+  justify-content: center;
 
 }
 
@@ -143,6 +145,14 @@ content #cicles {
 }
 
 content #vius {
+  order: 2;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-left: 2px;
+}
+
+content #morts {
   order: 2;
   justify-content: center;
   text-align: center;

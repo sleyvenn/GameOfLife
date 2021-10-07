@@ -5,8 +5,7 @@ let evolutionSpeed = 340; // Variable per controlar la velocitat del programa.
 var nomCookie = window.location.search;
 nomCookie = new URLSearchParams(nomCookie);
 nomCookie = nomCookie.get('nom');
-nomCookie = nomCookie.replace(" ", "+");
-console.log(nomCookie);
+nomCookie = nomCookie.replaceAll(" ", "+");
 
 let values = getCookie(nomCookie);
 
@@ -20,6 +19,7 @@ let nextGen = [rows];
 
 let contador = 0;
 let vius = 0;
+let morts = 0;
 
 function verifyCookie() {  
 
@@ -44,7 +44,7 @@ function verifyCookie() {
   }
 
  
-  showLifes();
+  showLifesDeaths();
   updateTimer();
   sliderVelocitat();
 
@@ -155,7 +155,7 @@ function setRandom() {
 
   contador = 0;
   updateTimer();
-  showLifes();
+  showLifesDeaths();
   
 }
 
@@ -173,7 +173,7 @@ function cellClick() {
     currGen[row][col] = 1;
   }
 
-  showLifes();
+  showLifesDeaths();
 
 }
 function createNextGen() {
@@ -206,7 +206,7 @@ function createNextGen() {
   }
   contador++;
   updateTimer();
-  showLifes();
+  showLifesDeaths();
   // Incremento el contador per tal de mostrar els cicles del joc.
 }
 function getNeighborCount(row, col) {
@@ -294,21 +294,23 @@ function updateTimer() {
   
 }
 
-function showLifes() {
-  // Funció que mostra els vius actuals a cada generació.
+function showLifesDeaths() {
+  // Funció que mostra els vius i morts actuals a cada generació.
   
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
         
         if (currGen[i][j] == 1) vius++;
+        else morts++;
       
   }
 }
 
   document.getElementById("vius").innerText = vius;
+  document.getElementById("morts").innerText = morts;
   vius = 0;
+  morts = 0;
 }
-
 
 function sliderVelocitat() {
   // Funció que modifica la velocitat a partir del valor evolutionSpeed declarat al principi del codi amb un slider.
@@ -355,7 +357,7 @@ function onlyStopJoc() {
   clearTimeout(timer);
   contador = 0;
   updateTimer;
-  showLifes();
+  showLifesDeaths();
 }
 
 function resetWorld() {
@@ -371,7 +373,7 @@ function resetWorld() {
 
   contador = 0;
   updateTimer();
-  showLifes();
+  showLifesDeaths();
   onlyStopJoc();
 }
 

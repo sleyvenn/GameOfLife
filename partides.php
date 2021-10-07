@@ -18,13 +18,18 @@
           
           <?php 
             
-            foreach($_COOKIE as $key => $value){
             
+            foreach($_COOKIE as $key => $value){
+            $obj = json_decode($value);
               if(substr($key,0,4) == "GOL-"){
+                
                 $key = substr($key,4);
                 $key = str_replace('+', ' ', $key);
                 
-                echo "<option value='$key'>$key</option>";
+                echo "<option value='$key'>$key ";
+                
+                echo "(" . $obj->{'creacio'} . ")";
+                echo "</option>";
               
               } 
 

@@ -25,9 +25,8 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
       <div class="navmenu">
         <ul>
           <li><a href="./">Inici</a></li>
-          <li>Estadistiques</li>
           <li><a href="./partides.php">Partides guardades</a></li>
-          <li>Contacte</li>
+          <li><a href="https://github.com/sleyvenn" target="_blank">Contacte</a></li>
         </ul>
       </div>
     </header>

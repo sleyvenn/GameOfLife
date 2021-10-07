@@ -97,6 +97,7 @@ content .form {
   max-width: 40%;
   height: 100%;
   box-shadow: 0px 0px 30px 0px #222831;
+  padding: 20px;
 }
 
 content .play {
@@ -145,7 +146,6 @@ content #vius {
   text-align: center;
   align-items: center;
   padding-left: 2px;
-
 }
 
 
@@ -164,6 +164,16 @@ input {
 
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+
+}
+
 form label {
   margin: 5px;
   text-align: left;
@@ -175,14 +185,7 @@ form ::placeholder {
   text-align: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
+
 
 #button {
   background-color: #fad34b;

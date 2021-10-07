@@ -4,12 +4,14 @@ let evolutionSpeed = 340; // Variable per controlar la velocitat del programa.
 
 let nomCookie = window.location.href;
 nomCookie = nomCookie.substr(42);
+
 let values = getCookie(nomCookie);
 
 values = JSON.parse(values);
 const cols = values["columnes"];
 const rows = values["files"];
 let partida = values["partida"];
+var creacio = values["creacio"];
 let currGen = [rows]; 
 let nextGen = [rows]; 
 
@@ -22,19 +24,23 @@ function verifyCookie() {
 
     createWorld();
     createGenArrays();
+    initGenArrays();
+    saveStatus(); 
+    //Inicialitzo aquesta funció al principi de cada partida nova per convertir al format json de javascript la cookie.
 
   }
 
   else {
 
 
-    recoverWorld();
+    recoverWorld(); //Aquesta es la funcion que diferencia entre una nova partida y una ja creada.
     createGenArrays();
+    initGenArrays();
+
 
   }
 
  
-  initGenArrays();
   showLifes();
   updateTimer();
   sliderVelocitat();
@@ -99,7 +105,7 @@ function createWorld() {
 }
 
 function recoverWorld() {
-  // Funció per crear l'univers.
+  // Funció per recuperar l'univers.
   
   let world = document.querySelector("#joc");
 
@@ -168,6 +174,7 @@ function cellClick() {
 
 }
 function createNextGen() {
+  // Funció per verificar veins i crear la següent generació (segona array).
   for (row in currGen) {
     for (col in currGen[row]) {
       let neighbors = getNeighborCount(row, col);
@@ -200,6 +207,7 @@ function createNextGen() {
   // Incremento el contador per tal de mostrar els cicles del joc.
 }
 function getNeighborCount(row, col) {
+  // Es important tenir un recompte dels veins per poder generar el joc.
   let count = 0;
   let nrow = Number(row);
   let ncol = Number(col);
@@ -253,6 +261,7 @@ function updateCurrGen() {
 }
 
 function updateWorld() {
+  // Funció que actualitza el css de la cel·la amb viu o mort.
   let cell = "";
   for (row in currGen) {
     for (col in currGen[row]) {
@@ -266,6 +275,7 @@ function updateWorld() {
   }
 }
 function evolve() {
+  // Funció que invoca varie funcions per actualitzar (o evolucionar) el joc amb el botó Jugar (comencar = true).
   createNextGen();
   updateCurrGen();
   updateWorld();
@@ -276,18 +286,16 @@ function evolve() {
 }
 
 function updateTimer() {
+  // Funció que actualitza el contador de generacio.
   document.getElementById("cicles").innerText = contador;
   
 }
 
 function showLifes() {
-
-  
+  // Funció que mostra els vius actuals a cada generació.
   
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
-
-      
         
         if (currGen[i][j] == 1) vius++;
       
@@ -300,6 +308,7 @@ function showLifes() {
 
 
 function sliderVelocitat() {
+  // Funció que modifica la velocitat a partir del valor evolutionSpeed declarat al principi del codi amb un slider.
   var velocitat = document.getElementById("speed");
   var output = document.getElementById("valor");
   output.innerHTML = velocitat.value;
@@ -311,6 +320,8 @@ function sliderVelocitat() {
 }
 
 function startStopGol() {
+  // Funció pel botó Jugar/Pausar i que activa o desactiva el joc amb el booleà comencar.
+
   let startstop = document.querySelector("#btnplay");
 
   if (!comencar) {
@@ -325,6 +336,7 @@ function startStopGol() {
 }
 
 function onlyStartJoc() {
+  // Funció que al final no he utilitzat, pero sempre va bé tindre que es només començar el joc.
   let startstop = document.querySelector("#btnplay");
 
   comencar = true;
@@ -344,6 +356,7 @@ function onlyStopJoc() {
 }
 
 function resetWorld() {
+  // Funció pel botó Reiniciar, que serveix per resetejar l'univers.
   for (row in currGen) {
     for (col in currGen[row]) {
       cell = document.getElementById(row + "+" + col);
@@ -359,17 +372,13 @@ function resetWorld() {
   onlyStopJoc();
 }
 
-function StartStats() {
-  document.getElementById("nom").addEventListener("select", showStats());
-}
-
 function saveStatus() {
   // Funció per guardar la partida amb l'estat actual.
 
-  var obj = {"columnes": cols, "files": rows, "partida": currGen};
+  var obj = {"creacio": creacio, "columnes": cols, "files": rows, "partida": currGen};
   var json = JSON.stringify(obj);
 
-  setCookie(nomCookie, json);
+  setCookie(nomCookie, json, 7);
 
 }
 
@@ -399,6 +408,7 @@ function setCookie(cname, cvalue, exdays) {
   }
 
 window.onload = () => {
+  // La única funció que haig de carregar cada vegada que es carrega la finestra es aquesta. A partir d'allà s'inicialitza el joc.
   
   verifyCookie();
 

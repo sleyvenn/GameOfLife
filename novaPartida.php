@@ -6,10 +6,11 @@ $nomCookie = "GOL-" . str_replace(' ', '+', $nom);
 $columnes = validate_input($_POST['columnes']);
 $files = validate_input($_POST['files']);
 $partida = "empty";
+$creacio = date('d-m-Y H:i:s');
 
-$toCookie = array("columnes"=>$columnes, "files"=>$files, "partida"=>$partida);
+$toCookie = array("creacio"=>$creacio, "columnes"=>$columnes, "files"=>$files, "partida"=>$partida);
 $jsonValors = json_encode($toCookie);
-setcookie($nomCookie, $jsonValors, 0,);
+setcookie($nomCookie, $jsonValors);
 
 
 function validate_input($data) {

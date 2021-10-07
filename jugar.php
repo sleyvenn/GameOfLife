@@ -16,7 +16,6 @@ $cookie = json_decode($_COOKIE[$nomCookie]);
     <link rel="stylesheet" type="text/css" href="./global.css" title="style" />
     <title>Game of Life</title>
     <script src="joc.js"></script>
-    <script src="./sections/sections.js"></script>
   </head>
   <body>
       

@@ -31,5 +31,6 @@ Primer projecte del segón curs del Cicle Superior de Desenvolupament d'Aplicaci
 
 ## Gràcies 🎁
 
-* Agraeixo tota l'ajuda que m'han proporcionat els professors i companys del cicle per tal de poder assolir els objectius del projecte.
-
+Agraeixo tota l'ajuda que m'han proporcionat els professors i companys del cicle per tal de poder assolir els objectius del projecte. 
+Ha sigut un projecte en el cual m'he introduït en els llenguatges php i javascript, dels quals encara no tenía cap coneixement. En tres semanes he hagut d'assolir els conceptes bàsics i claus per tal de crear el projecte. 
+Ha estat una experiència molt interessant, que he disfrutat i patit molt. Però sobretot, m'ha permés trencar molts murs que pensaba que hi tenía davant meu respecte a l'aprenentatge de programació i entendre com funcionen diferents llenguatges que mai havía utilitzat.

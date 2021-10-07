@@ -1,4 +1,4 @@
-![picture alt](https://raw.githubusercontent.com/sleyvenn/GameOfLife/main/img/logo.png?token=ASCI5FYXDQTFHZFVA5BO33LBL3ZV2)
+![picture alt](https://i.ibb.co/g9tb3FX/logo.png)
 # Game Of Life 👨‍🚀
 
 Primer projecte del segón curs del Cicle Superior de Desenvolupament d'Aplicacions Web a l'Institut Cendrassos.

@@ -3,6 +3,13 @@
 
 Primer projecte del segón curs del Cicle Superior de Desenvolupament d'Aplicacions Web a l'Institut Cendrassos.
 
+## Regles del joc 📜
+
+1. Tota cel·la viva amb menys de dos veïns vius mor (de solitud).
+2. Tota cel·la viva amb més de tres veïns vius mor (de sobreconcentració).
+3. Tota cel·la viva amb dos o tres veïns vius, segueix viva per a la següent generació.
+4. Tota cel·la morta amb exactament tres veïns vius torna a la vida.
+
 ## Construit amb... 🛠️
 
 * [Visual Studio Code](https://code.visualstudio.com/) - IDE utilizado.
